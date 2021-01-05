@@ -1,4 +1,3 @@
-Hash method using iteration
 class ResistorColorDuo
   BANDS = {
      black: 0,
