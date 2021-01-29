@@ -5,9 +5,18 @@ class Squares
   end
 
   def square_of_sum
-    (0..number).step(1).sum ** 2
+    natural_numbers.sum ** 2
   end
 
   def sum_of_squares
+    natural_numbers.map { |number| number ** 2 }.sum
+  end
+
+  def natural_numbers
+    (0..number).step
+  end
+
+  def difference
+    square_of_sum - sum_of_squares
   end
 end
