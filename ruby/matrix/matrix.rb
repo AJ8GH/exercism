@@ -1,3 +1,6 @@
 class Matrix
-  def rows
+  attr_accessor :rows
+  def initialize(string)
+    @rows
+  end
 end
