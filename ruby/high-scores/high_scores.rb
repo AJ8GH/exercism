@@ -1,5 +1,5 @@
 class HighScores
-  attr_reader :scores, :latest, :personal_best, :personal_top_three, :latest_is_personal_best
+  attr_reader :scores, :latest, :personal_best, :personal_top_three,
 
   def initialize(scores)
     @scores = scores
