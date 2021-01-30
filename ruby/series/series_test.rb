@@ -8,13 +8,13 @@ class SeriesTest < Minitest::Test
   end
 
   def test_simple_slices_of_one_again
-    skip
+    # skip
     series = Series.new('92834')
     assert_equal ['9', '2', '8', '3', '4'], series.slices(1)
   end
 
   def test_simple_slices_of_two
-    skip
+    # skip
     series = Series.new('01234')
     assert_equal ['01', '12', '23', '34'], series.slices(2)
   end

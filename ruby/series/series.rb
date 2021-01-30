@@ -6,6 +6,10 @@ class Series
   end
 
   def slices(number)
-    @string.split('')
+    slices = []
+    (string.length - number + 1).times do |index|
+      slices << string[index, number]
+    end
+    slices
   end
 end
