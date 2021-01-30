@@ -1,5 +1,4 @@
 class Series
-
   private
 
   attr_reader :numbers, :numbers_length
