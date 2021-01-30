@@ -1,5 +1,9 @@
 class Triangle
-  attr_reader :sides, :valid_triangle, :all_sides_positive, :triangle_inequality
+  attr_reader :sides,
+              :all_sides_positive,
+              :triangle_inequality,
+              :valid_triangle
+
   alias :valid_triangle? :valid_triangle
   undef :valid_triangle
 
