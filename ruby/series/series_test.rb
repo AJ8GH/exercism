@@ -20,20 +20,20 @@ class SeriesTest < Minitest::Test
   end
 
   def test_other_slices_of_two
-    skip
+    # skip
     series = Series.new('98273463')
     expected = ['98', '82', '27', '73', '34', '46', '63']
     assert_equal expected, series.slices(2)
   end
 
   def test_simple_slices_of_two_again
-    skip
+    # skip
     series = Series.new('37103')
     assert_equal ['37', '71', '10', '03'], series.slices(2)
   end
 
   def test_simple_slices_of_three
-    skip
+    # skip
     series = Series.new('01234')
     assert_equal ['012', '123', '234'], series.slices(3)
   end
