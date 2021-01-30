@@ -1,6 +1,6 @@
 class Transpose
   def self.transpose(matrix_string)
-    matrix_string.lines
+    matrix_string.split("\n").map(&:chars).transpose
   end
 end
 
