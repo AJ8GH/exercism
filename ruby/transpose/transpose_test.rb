@@ -13,7 +13,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_two_characters_in_a_row
-    skip
+    # skip
     input = "A1"
 
     expected = "A\n1"
