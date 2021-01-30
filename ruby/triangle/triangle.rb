@@ -1,5 +1,7 @@
 class Triangle
   attr_reader :sides, :valid_triangle, :all_sides_positive, :triangle_inequality
+  alias :valid_triangle? :valid_triangle
+  undef :valid_triangle
 
   def initialize(sides)
     @sides = sides
@@ -9,14 +11,14 @@ class Triangle
   end
 
   def equilateral?
-    sides.all?(sides.first) and valid_triangle
+    valid_triangle? and sides.all?(sides.first)
   end
 
   def isosceles?
-    valid_triangle and sides.any? { |side| sides.count(side) >= 2 }
+    valid_triangle? and sides.any? { |side| sides.count(side) >= 2 }
   end
 
   def scalene?
-    valid_triangle and not equilateral? and not isosceles?
+    valid_triangle? and not equilateral? and not isosceles?
   end
 end
