@@ -39,43 +39,43 @@ class SeriesTest < Minitest::Test
   end
 
   def test_simple_slices_of_three_again
-    skip
+    # skip
     series = Series.new('31001')
     assert_equal ['310', '100', '001'], series.slices(3)
   end
 
   def test_other_slices_of_three
-    skip
+    # skip
     series = Series.new('982347')
     assert_equal ['982', '823', '234', '347'], series.slices(3)
   end
 
   def test_simple_slices_of_four
-    skip
+    # skip
     series = Series.new('01234')
     assert_equal ['0123', '1234'], series.slices(4)
   end
 
   def test_simple_slices_of_four_again
-    skip
+    # skip
     series = Series.new('91274')
     assert_equal ['9127', '1274'], series.slices(4)
   end
 
   def test_simple_slices_of_five
-    skip
+    # skip
     series = Series.new('01234')
     assert_equal ['01234'], series.slices(5)
   end
 
   def test_simple_slices_of_five_again
-    skip
+    # skip
     series = Series.new('81228')
     assert_equal ['81228'], series.slices(5)
   end
 
   def test_simple_slice_that_blows_up
-    skip
+    # skip
     series = Series.new('01234')
     assert_raises ArgumentError do
       series.slices(6)
@@ -83,7 +83,7 @@ class SeriesTest < Minitest::Test
   end
 
   def test_more_complicated_slice_that_blows_up
-    skip
+    # skip
     slice_string = '01032987583'
 
     series = Series.new(slice_string)
@@ -93,7 +93,7 @@ class SeriesTest < Minitest::Test
   end
 
   def test_sequential_slices
-    skip
+    # skip
     series = Series.new('1234')
     assert_equal ['12', '23', '34'], series.slices(2)
     assert_equal ['123', '234'], series.slices(3)
