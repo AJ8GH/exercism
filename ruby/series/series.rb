@@ -1,8 +1,11 @@
 class Series
-  def initialize(string_of_numbers)
+  attr_accessor :string
 
+  def initialize(string)
+    @string = string
   end
 
   def slices(number)
+    @string.split('')
   end
 end
