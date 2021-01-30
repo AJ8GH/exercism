@@ -1,7 +1,8 @@
 class Squares
-  attr_reader :number
+  attr_reader :number, :natural_numbers
   def initialize(number)
     @number = number
+    @natural_numbers = (0..number).step
   end
 
   def square_of_sum
@@ -10,10 +11,6 @@ class Squares
 
   def sum_of_squares
     natural_numbers.map { |number| number ** 2 }.sum
-  end
-
-  def natural_numbers
-    (0..number).step
   end
 
   def difference
