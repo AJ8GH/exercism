@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'grains'
 
 # Common test data version: 1.2.0 2ec42ab
