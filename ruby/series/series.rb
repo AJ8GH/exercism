@@ -1,25 +1,24 @@
 class Series
   private
 
-  attr_reader :number_string, :number_string_length
-  def initialize(number_string)
-    @number_string = number_string
-    @number_string_length = number_string.length
+  attr_reader :numbers, :numbers_length, :digits
+
+  def initialize(numbers)
+    @numbers = numbers
+    @numbers_length = numbers.length
+    @digits = numbers.chars
   end
 
-  def argument_length_valid(sub_string_length)
-    raise ArgumentError if sub_string_length > number_string_length
+  def validate(sub_string)
+    raise ArgumentError if sub_string > numbers_length
   end
 
   public
 
-  def slices(sub_string_length)
-    argument_length_valid(sub_string_length)
-    difference = number_string_length - sub_string_length
-    sub_strings = []
-    (difference + 1).times do |start_of_sub_string|
-      sub_strings << number_string[start_of_sub_string, sub_string_length]
-    end
-    sub_strings
+  def slices(sub_string)
+    validate(sub_string)
+    digits.map.with_index do |digit, index|
+      numbers.slice(index, sub_string) unless index > numbers_length - sub_string
+    end.compact
   end
 end
