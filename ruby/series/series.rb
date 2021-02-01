@@ -1,15 +1,14 @@
 class Series
   private
 
-  attr_reader :numbers, :digits
+  attr_reader :digits
 
   def initialize(numbers)
-    @numbers = numbers
     @digits = numbers.chars
   end
 
   def valid?(size)
-    numbers.length >= size
+    digits.length >= size
   end
 
   public
