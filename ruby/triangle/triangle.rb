@@ -1,6 +1,6 @@
 class Triangle
   attr_reader :sides,
-              :all_sides_positive,
+              :no_zero_sides,
               :triangle_inequality,
               :valid_triangle
 
@@ -9,9 +9,9 @@ class Triangle
 
   def initialize(sides)
     @sides = sides
-    @all_sides_positive = sides.all? { |side| side > 0 }
+    @no_zero_sides = sides.none? { |side| side.zero? }
     @triangle_inequality = sides.all? { |side| sides.sum - side >= side }
-    @valid_triangle = all_sides_positive && triangle_inequality
+    @valid_triangle = no_zero_sides && triangle_inequality
   end
 
   def equilateral?
@@ -26,3 +26,7 @@ class Triangle
     valid_triangle? and not equilateral? and not isosceles?
   end
 end
+
+# if defined? Minitest
+#   describe ''
+# end
