@@ -8,9 +8,9 @@ class Triangle
   undef :valid_triangle
 
   def initialize(sides)
-    @sides = sides
+    @sides = sides.map(&:abs)
     @no_zero_sides = sides.none? { |side| side.zero? }
-    @triangle_inequality = sides.all? { |side| sides.sum - side >= side }
+    @triangle_inequality = sides.all? { |side| self.sides.sum - side >= side }
     @valid_triangle = no_zero_sides && triangle_inequality
   end
 
@@ -27,6 +27,11 @@ class Triangle
   end
 end
 
-# if defined? Minitest
-#   describe ''
-# end
+if defined? Minitest
+  describe Triangle do
+      it 'confirms all negative equilateral' do
+        triangle = Triangle.new([-2, -2, -2])
+        assert triangle.equilateral?, 'Expected true'
+      end
+    end
+end
