@@ -7,10 +7,10 @@ class Triangle
   alias :valid_triangle? :valid_triangle
   undef :valid_triangle
 
-  def initialize(sides)
-    @sides = sides.map(&:abs)
+  def initialize(initial_sides)
+    @sides = initial_sides.map(&:abs)
     @no_zero_sides = sides.none? { |side| side.zero? }
-    @triangle_inequality = self.sides.all? { |side| self.sides.sum - side >= side }
+    @triangle_inequality = sides.all? { |side| sides.sum - side >= side }
     @valid_triangle = no_zero_sides && triangle_inequality
   end
 
