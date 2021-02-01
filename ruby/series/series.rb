@@ -1,24 +1,23 @@
 class Series
   private
 
-  attr_reader :numbers, :length, :digits
+  attr_reader :numbers
 
   def initialize(numbers)
     @numbers = numbers
-    @length = numbers.length
-    @digits = numbers.chars
   end
 
   def valid?(size)
-    length >= size
+    numbers.length >= size
   end
 
   public
 
   def slices(size)
-    raise ArgumentError unless valid?(size)
-    digits.map.with_index do |digit, i|
-      numbers.slice(i, size) unless i > length - size
-    end.compact
+    raise SliceSizeError unless valid?(size)
+    numbers.chars.each_cons(size).map(&:join)
   end
+end
+
+class SliceSizeError < ArgumentError
 end
