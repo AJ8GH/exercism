@@ -10,7 +10,7 @@ class Triangle
   def initialize(sides)
     @sides = sides.map(&:abs)
     @no_zero_sides = sides.none? { |side| side.zero? }
-    @triangle_inequality = sides.all? { |side| self.sides.sum - side >= side }
+    @triangle_inequality = self.sides.all? { |side| self.sides.sum - side >= side }
     @valid_triangle = no_zero_sides && triangle_inequality
   end
 
@@ -29,9 +29,36 @@ end
 
 if defined? Minitest
   describe Triangle do
+    describe 'it takes negative sides as arguments' do
       it 'confirms all negative equilateral' do
         triangle = Triangle.new([-2, -2, -2])
         assert triangle.equilateral?, 'Expected true'
       end
+
+      it 'confirms partially negative equilateral' do
+        triangle = Triangle.new([-2, 2, -2])
+        assert triangle.equilateral?, 'Expected true'
+      end
+
+      it 'confirms isosceles with one negative side' do
+        triangle = Triangle.new([5, -3, 3])
+        assert triangle.isosceles?, 'Expected true'
+      end
+
+      it 'confirms scalene with 2 negative sides' do
+        triangle = Triangle.new([-5, 6, -8])
+        assert triangle.scalene?, 'Expected true'
+      end
+
+      it 'rejects invalid triangle with a negative side' do
+        triangle = Triangle.new([-5, 0, 3])
+        refute triangle.scalene?, 'Expected false'
+      end
+
+      it 'rejects inequal triangle with a negative side' do
+        triangle = Triangle.new([-5, 1, 1])
+        refute triangle.isosceles?, 'Expected false'
+      end
     end
+  end
 end
