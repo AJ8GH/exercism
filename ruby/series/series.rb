@@ -20,7 +20,7 @@ class Series
 end
 
 class SliceSizeError < ArgumentError
-  def initialize
-    raise self, 'Slice requested must be smaller than series.'
+  def initialize(message = 'Slice requested must be smaller than series.')
+    super
   end
 end
