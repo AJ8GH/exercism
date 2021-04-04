@@ -1,13 +1,12 @@
 def is_pangram(sentence):
     ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
 
-    characters = ''.join(set(sentence)).lower()
+    sentence = sentence.lower()
+    results = []
 
-    import re
-    re.sub(r'[^a-zA-Z]', '', characters)
+    for char in sentence:
+        if char not in ALPHABET or char in results:
+            continue
+        results.append(char)
 
-
-    if len(characters) == 26:
-        return True
-
-    return False
+    return len(results) == 26
