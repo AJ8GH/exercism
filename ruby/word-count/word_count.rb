@@ -1,4 +1,9 @@
 class Phrase
+  def initialize(phrase)
+    @phrase = phrase
+    @words = normalize_phrase
+  end
+
   def word_count
     words.tally
   end
@@ -6,11 +11,6 @@ class Phrase
   private
 
   attr_reader :phrase, :words
-
-  def initialize(phrase)
-    @phrase = phrase
-    @words = normalize_phrase
-  end
 
   def normalize_phrase
     create_word_array.map { |word| normalize_word(word) }
