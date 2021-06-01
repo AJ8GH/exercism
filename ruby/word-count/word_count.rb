@@ -1,25 +1,26 @@
 class Phrase
   def initialize(phrase)
     @phrase = phrase
-    @words = get_words
+    @words = normalize_phrase
   end
 
   def word_count
-    words.inject(Hash.new(0)) do |hash, word|
-      hash[format_word(word)] += 1
-      hash
-    end
+    words.tally
   end
 
   private
 
   attr_reader :phrase, :words
 
-  def get_words
+  def normalize_phrase
+    create_word_array.word_array.map { |word| normalize_word(word) }
+  end
+
+  def create_word_array
     phrase.split.map { |word| word.split(',') }.flatten
   end
 
-  def format_word(word)
-    word.gsub(/[^a-zA-Z0-9']/, '').downcase.gsub(/\B'\b|\b'\B/, '')
+  def normalize_word(word)
+    word.gsub(/^'|'$|[^a-zA-Z0-9']/, '').downcase
   end
 end
