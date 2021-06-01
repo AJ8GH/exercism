@@ -1,8 +1,25 @@
-=begin
-Write your code for the 'Word Count' exercise in this file. Make the tests in
-`word_count_test.rb` pass.
+class Phrase
+  def initialize(phrase)
+    @phrase = phrase
+    @words = get_words
+  end
 
-To get started with TDD, see the `README.md` file in your
-`ruby/word-count` directory.
-=end
+  def word_count
+    words.inject(Hash.new(0)) do |hash, word|
+      hash[format_word(word)] += 1
+      hash
+    end
+  end
 
+  private
+
+  attr_reader :phrase, :words
+
+  def get_words
+    phrase.split.map { |word| word.split(',') }.flatten
+  end
+
+  def format_word(word)
+    word.gsub(/[^a-zA-Z0-9']/, '').downcase.gsub(/\B'\b|\b'\B/, '')
+  end
+end
