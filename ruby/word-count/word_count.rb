@@ -1,9 +1,4 @@
 class Phrase
-  def initialize(phrase)
-    @phrase = phrase
-    @words = normalize_phrase
-  end
-
   def word_count
     words.tally
   end
@@ -12,8 +7,13 @@ class Phrase
 
   attr_reader :phrase, :words
 
+  def initialize(phrase)
+    @phrase = phrase
+    @words = normalize_phrase
+  end
+
   def normalize_phrase
-    create_word_array.word_array.map { |word| normalize_word(word) }
+    create_word_array.map { |word| normalize_word(word) }
   end
 
   def create_word_array
@@ -21,6 +21,6 @@ class Phrase
   end
 
   def normalize_word(word)
-    word.gsub(/^'|'$|[^a-zA-Z0-9']/, '').downcase
+    word.gsub(/^'|'$|[^\w']/, '').downcase
   end
 end
