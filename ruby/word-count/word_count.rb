@@ -13,14 +13,8 @@ class Phrase
   attr_reader :phrase, :words
 
   def normalize_phrase
-    create_word_array.map { |word| normalize_word(word) }
-  end
-
-  def create_word_array
-    phrase.split.map { |word| word.split(',') }.flatten
-  end
-
-  def normalize_word(word)
-    word.gsub(/^'|'$|[^\w']/, '').downcase
+    phrase.split(/\s|,/).join(' ').split.map do |word|
+      word.scan(/\b[\w']+\b/).join.downcase
+    end
   end
 end
