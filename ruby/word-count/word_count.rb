@@ -1,7 +1,7 @@
 class Phrase
   def initialize(phrase)
     @phrase = phrase
-    @words = normalize_phrase
+    @words = normalize
   end
 
   def word_count
@@ -12,9 +12,7 @@ class Phrase
 
   attr_reader :phrase, :words
 
-  def normalize_phrase
-    phrase.split(/\s|,/).join(' ').split.map do |word|
-      word.scan(/\b[\w']+\b/).join.downcase
-    end
+  def normalize
+    phrase.downcase.scan(/\b[\w']+\b/)
   end
 end

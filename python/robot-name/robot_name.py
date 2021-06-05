@@ -8,7 +8,7 @@ class Robot:
         self.generate_name()
 
     def generate_name(self):
-        random.seed(random.random())
+        random.seed()
         name = ''
         while len(name) < 2:
             name += random.choice(string.ascii_uppercase)

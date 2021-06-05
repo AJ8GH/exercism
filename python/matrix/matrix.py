@@ -3,7 +3,7 @@ class Matrix:
         self.matrix_string = matrix_string
 
     def row(self, index):
-        return([1])
+        return([self.matrix_string])
 
     def column(self, index):
-        return([1])
+        return([self.matrix_string])
