@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="acronym.main" target="11" />
+      <module name="acronym.test" target="11" />
+      <module name="anagram.main" target="11" />
+      <module name="anagram.test" target="11" />
+      <module name="armstrong-numbers.main" target="11" />
+      <module name="armstrong-numbers.test" target="11" />
+      <module name="hello-world.main" target="11" />
+      <module name="hello-world.test" target="11" />
+      <module name="pangram.main" target="11" />
+      <module name="pangram.test" target="11" />
+      <module name="pig-latin.main" target="11" />
+      <module name="pig-latin.test" target="11" />
+      <module name="reverse-string.main" target="11" />
+      <module name="reverse-string.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
