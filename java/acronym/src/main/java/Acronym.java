@@ -1,11 +1,25 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 class Acronym {
+    private final String phrase;
 
     Acronym(String phrase) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.phrase = normalize(phrase);
     }
 
     String get() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        Pattern pattern = Pattern.compile("\\b[a-zA-Z]");
+        Matcher matcher = pattern.matcher(phrase);
+        StringBuilder acronym = new StringBuilder();
+        while (matcher.find()) {
+            acronym.append(matcher.group().toUpperCase());
+        }
+        return acronym.toString();
     }
 
+    private String normalize(String phrase) {
+        return phrase.replaceAll("'", "")
+                .replaceAll("[-|_]", " ");
+    }
 }
