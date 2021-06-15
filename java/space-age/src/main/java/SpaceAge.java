@@ -48,5 +48,4 @@ class SpaceAge {
     double onNeptune() {
         return getSeconds() / NEPTUNE_YEAR;
     }
-
 }

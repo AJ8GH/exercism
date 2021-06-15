@@ -12,9 +12,7 @@ class Acronym {
         Pattern pattern = Pattern.compile("\\b[a-zA-Z]");
         Matcher matcher = pattern.matcher(phrase);
         StringBuilder acronym = new StringBuilder();
-        while (matcher.find()) {
-            acronym.append(matcher.group().toUpperCase());
-        }
+        while (matcher.find()) { acronym.append(matcher.group().toUpperCase()); }
         return acronym.toString();
     }
 

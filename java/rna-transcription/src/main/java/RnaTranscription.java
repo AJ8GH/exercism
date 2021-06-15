@@ -10,10 +10,7 @@ class RnaTranscription {
     String transcribe(String dnaStrand) {
         List<String> strands = Arrays.asList(dnaStrand.split(""));
         List<String> transcribed = strands.stream()
-                .map(RNA::get)
-                .collect(Collectors.toList());
-        System.out.println(transcribed);
-
+                .map(RNA::get).collect(Collectors.toList());
         return String.join("", transcribed);
     }
 
