@@ -5,20 +5,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 class RnaTranscription {
-    String transcribe(String dnaStrand) {
-        HashMap<String, String> rna = new HashMap<>();
-        rna.put("G", "C");
-        rna.put("C", "G");
-        rna.put("T", "A");
-        rna.put("A", "U");
-        rna.put("", "");
+    private final HashMap<String, String> RNA = createRnaMap();
 
+    String transcribe(String dnaStrand) {
         List<String> strands = Arrays.asList(dnaStrand.split(""));
         List<String> transcribed = strands.stream()
-                .map(rna::get)
+                .map(RNA::get)
                 .collect(Collectors.toList());
         System.out.println(transcribed);
 
         return String.join("", transcribed);
+    }
+
+    private HashMap<String, String> createRnaMap() {
+        HashMap<String, String> rnaMap = new HashMap<>();
+        rnaMap.put("G", "C");
+        rnaMap.put("C", "G");
+        rnaMap.put("T", "A");
+        rnaMap.put("A", "U");
+        rnaMap.put("", "");
+        return rnaMap;
     }
 }

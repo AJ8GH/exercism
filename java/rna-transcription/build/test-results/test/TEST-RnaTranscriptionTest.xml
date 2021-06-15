@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RnaTranscriptionTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-06-15T13:34:58" hostname="Adams-MBP" time="0.019">
+<testsuite name="RnaTranscriptionTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-06-15T13:41:38" hostname="Adams-MBP" time="0.017">
   <properties/>
-  <testcase name="testRnaTranscriptionOfThymineIsAdenine" classname="RnaTranscriptionTest" time="0.014"/>
+  <testcase name="testRnaTranscriptionOfThymineIsAdenine" classname="RnaTranscriptionTest" time="0.013"/>
   <testcase name="testRnaTranscription" classname="RnaTranscriptionTest" time="0.0"/>
-  <testcase name="testRnaTranscriptionOfCytosineIsGuanine" classname="RnaTranscriptionTest" time="0.001"/>
-  <testcase name="testEmptyRnaSequence" classname="RnaTranscriptionTest" time="0.001"/>
-  <testcase name="testRnaTranscriptionOfGuanineIsCytosine" classname="RnaTranscriptionTest" time="0.001"/>
+  <testcase name="testRnaTranscriptionOfCytosineIsGuanine" classname="RnaTranscriptionTest" time="0.0"/>
+  <testcase name="testEmptyRnaSequence" classname="RnaTranscriptionTest" time="0.0"/>
+  <testcase name="testRnaTranscriptionOfGuanineIsCytosine" classname="RnaTranscriptionTest" time="0.0"/>
   <testcase name="testRnaTranscriptionOfAdenineIsUracil" classname="RnaTranscriptionTest" time="0.0"/>
   <system-out><![CDATA[[A]
 [U, G, C, A, C, C, A, G, A, A, U, U]
