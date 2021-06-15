@@ -1,43 +1,52 @@
 class SpaceAge {
+    private final double seconds;
+    private final double EARTH_YEAR_SECONDS = 31557600;
+    private final double JUPITER_YEAR = 11.862615;
+    private final double MARS_YEAR = 1.8808158;
+    private final double MERCURY_YEAR = 0.2408467;
+    private final double NEPTUNE_YEAR = 164.79132;
+    private final double SATURN_YEAR = 29.447498;
+    private final double URANUS_YEAR = 84.016846;
+    private final double VENUS_YEAR = 0.61519726;
 
     SpaceAge(double seconds) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.seconds = seconds;
     }
 
     double getSeconds() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return seconds / EARTH_YEAR_SECONDS;
     }
 
     double onEarth() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return getSeconds();
     }
 
     double onMercury() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return getSeconds() / MERCURY_YEAR;
     }
 
     double onVenus() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return getSeconds() / VENUS_YEAR;
     }
 
     double onMars() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return getSeconds() / MARS_YEAR;
     }
 
     double onJupiter() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return getSeconds() / JUPITER_YEAR;
     }
 
     double onSaturn() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return getSeconds() / SATURN_YEAR;
     }
 
     double onUranus() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return getSeconds() / URANUS_YEAR;
     }
 
     double onNeptune() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return getSeconds() / NEPTUNE_YEAR;
     }
 
 }
