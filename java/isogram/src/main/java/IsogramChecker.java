@@ -1,7 +1,15 @@
+import java.util.*;
+
 class IsogramChecker {
 
     boolean isIsogram(String phrase) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+        String letters = phrase.replaceAll("[^a-zA-Z]", "");
+        char[] characters = letters.toLowerCase(Locale.ROOT).toCharArray();
+        Set<Character> set = new HashSet<>();
 
+        for (char character : characters) {
+            if (!set.add(character)) { return false; }
+        }
+        return true;
+    }
 }
