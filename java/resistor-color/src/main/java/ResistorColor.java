@@ -1,9 +1,24 @@
+import java.util.Arrays;
+
 class ResistorColor {
+    private final String[] COLOR_CODES = new String[] {
+            "black",
+            "brown",
+            "red",
+            "orange",
+            "yellow",
+            "green",
+            "blue",
+            "violet",
+            "grey",
+            "white"
+    };
+
     int colorCode(String color) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+         return Arrays.asList(COLOR_CODES).indexOf(color);
     }
 
     String[] colors() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return COLOR_CODES;
     }
 }
