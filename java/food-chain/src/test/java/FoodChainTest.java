@@ -22,7 +22,6 @@ public class FoodChainTest {
     }
 
     @Test
-    @Ignore("Remove to run test.")
     public void spider() {
         int verse = 2;
         String expected = "I know an old lady who swallowed a spider.\n" +

@@ -35,6 +35,87 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/beer-song" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/beer-song" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/bob" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/bob" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/darts" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/darts" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/diamond" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/diamond" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/difference-of-squares" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/difference-of-squares" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/dnd-character" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/dnd-character" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/food-chain" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/food-chain" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/gigasecond" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/gigasecond" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/grains" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/grains" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/hamming" />
         <option name="gradleJvm" value="adopt-openjdk-11" />
         <option name="modules">
@@ -50,6 +131,15 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/hello-world" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/house" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/house" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -75,6 +165,15 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/micro-blog" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/micro-blog" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/pangram" />
         <option name="gradleJvm" value="adopt-openjdk-11" />
         <option name="modules">
@@ -95,11 +194,47 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/protein-translation" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/protein-translation" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/proverb" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/proverb" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/raindrops" />
         <option name="gradleJvm" value="adopt-openjdk-11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/raindrops" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/resistor-color" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/resistor-color" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/resistor-color-duo" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/resistor-color-duo" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -125,11 +260,29 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/scrabble-score" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/scrabble-score" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/space-age" />
         <option name="gradleJvm" value="adopt-openjdk-11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/space-age" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/twelve-days" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/twelve-days" />
           </set>
         </option>
       </GradleProjectSettings>

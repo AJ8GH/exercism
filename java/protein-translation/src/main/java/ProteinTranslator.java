@@ -6,7 +6,6 @@ class ProteinTranslator {
 
     List<String> translate(String rnaSequence) {
         List<String> codonList = new ArrayList<>();
-
         for (int i = 0; i < rnaSequence.length(); i += 3) {
             codonList.add(rnaSequence.substring(i, i + 3));
         }
