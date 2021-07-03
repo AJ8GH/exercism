@@ -1,5 +1,4 @@
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 class DifferenceOfSquaresCalculator {
 
@@ -10,9 +9,9 @@ class DifferenceOfSquaresCalculator {
     }
 
     int computeSumOfSquaresTo(int input) {
-        int sumOfSquares = 0;
-        for (int i = 1; i <= input; i++) sumOfSquares += i * i;
-        return sumOfSquares;
+        IntStream range = IntStream.rangeClosed(1, input);
+        return range
+                .reduce(0, (sum, number) -> sum + number * number);
     }
 
     int computeDifferenceOfSquares(int input) {
