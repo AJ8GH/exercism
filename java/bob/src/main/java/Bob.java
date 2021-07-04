@@ -1,10 +1,27 @@
-/*
+import java.util.Locale;
 
-Since this exercise has a difficulty of > 4 it doesn't come
-with any starter implementation.
-This is so that you get to practice creating classes and methods
-which is an important part of programming in Java.
+public class Bob {
+    public String hey(String speech) {
+        if (isEmpty(speech)) return "Fine. Be that way!";
+        if (isQuestion(speech) && isYelling(speech)) {
+            return "Calm down, I know what I'm doing!";
+        }
+        if (isQuestion(speech)) return "Sure.";
+        if (isYelling(speech)) return "Whoa, chill out!";
+        return "Whatever.";
+    }
 
-Please remove this comment when submitting your solution.
+    private boolean isYelling(String speech) {
+        String yelledSpeech = speech.toUpperCase(Locale.ROOT);
+        String spokenSpeech = speech.toLowerCase(Locale.ROOT);
+        return speech.equals(yelledSpeech) && !speech.equals(spokenSpeech);
+    }
 
-*/
+    private boolean isQuestion(String speech) {
+        return speech.replaceAll("\\s+","").endsWith("?");
+    }
+
+    private boolean isEmpty(String speech) {
+        return speech.replaceAll("\\s+","").length() == 0;
+    }
+}
