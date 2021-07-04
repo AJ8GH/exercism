@@ -8,11 +8,11 @@ public class Bob {
     private final String YELLING_QUESTION = "Calm down, I know what I'm doing!";
 
     public String hey(String speech) {
-        if (isEmpty(speech)) return EMPTY_RESPONSE;
-        if (isQuestion(speech) && isYelling(speech)) return YELLING_QUESTION;
-        if (isQuestion(speech)) return QUESTION_RESPONSE;
-        if (isYelling(speech)) return YELLING_RESPONSE;
-        return DEFAULT_RESPONSE;
+        return
+            (isEmpty(speech)) ? EMPTY_RESPONSE :
+            (isQuestion(speech) && isYelling(speech)) ? YELLING_QUESTION :
+            (isQuestion(speech)) ? QUESTION_RESPONSE :
+            (isYelling(speech)) ? YELLING_RESPONSE : DEFAULT_RESPONSE;
     }
 
     private boolean isYelling(String speech) {
