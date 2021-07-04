@@ -1,14 +1,18 @@
 import java.util.Locale;
 
 public class Bob {
+    private final String DEFAULT_RESPONSE = "Whatever.";
+    private final String EMPTY_RESPONSE = "Fine. Be that way!";
+    private final String QUESTION_RESPONSE = "Sure.";
+    private final String YELLING_RESPONSE = "Whoa, chill out!";
+    private final String YELLING_QUESTION = "Calm down, I know what I'm doing!";
+
     public String hey(String speech) {
-        if (isEmpty(speech)) return "Fine. Be that way!";
-        if (isQuestion(speech) && isYelling(speech)) {
-            return "Calm down, I know what I'm doing!";
-        }
-        if (isQuestion(speech)) return "Sure.";
-        if (isYelling(speech)) return "Whoa, chill out!";
-        return "Whatever.";
+        if (isEmpty(speech)) return EMPTY_RESPONSE;
+        if (isQuestion(speech) && isYelling(speech)) return YELLING_QUESTION;
+        if (isQuestion(speech)) return QUESTION_RESPONSE;
+        if (isYelling(speech)) return YELLING_RESPONSE;
+        return DEFAULT_RESPONSE;
     }
 
     private boolean isYelling(String speech) {
