@@ -2,9 +2,63 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="two-fer" target="11" />
-      <module name="two-fer.main" target="11" />
-      <module name="two-fer.test" target="11" />
+      <module name="acronym" target="11" />
+      <module name="acronym.main" target="11" />
+      <module name="acronym.test" target="11" />
+      <module name="anagram" target="11" />
+      <module name="anagram.main" target="11" />
+      <module name="anagram.test" target="11" />
+      <module name="bob" target="11" />
+      <module name="bob.main" target="11" />
+      <module name="bob.test" target="11" />
+      <module name="difference-of-squares" target="11" />
+      <module name="difference-of-squares.main" target="11" />
+      <module name="difference-of-squares.test" target="11" />
+      <module name="dnd-character" target="11" />
+      <module name="dnd-character.main" target="11" />
+      <module name="dnd-character.test" target="11" />
+      <module name="food-chain" target="11" />
+      <module name="food-chain.main" target="11" />
+      <module name="food-chain.test" target="11" />
+      <module name="gigasecond" target="11" />
+      <module name="gigasecond.main" target="11" />
+      <module name="gigasecond.test" target="11" />
+      <module name="grains" target="11" />
+      <module name="grains.main" target="11" />
+      <module name="grains.test" target="11" />
+      <module name="hamming" target="11" />
+      <module name="hamming.main" target="11" />
+      <module name="hamming.test" target="11" />
+      <module name="house" target="11" />
+      <module name="house.main" target="11" />
+      <module name="house.test" target="11" />
+      <module name="leap" target="11" />
+      <module name="leap.main" target="11" />
+      <module name="leap.test" target="11" />
+      <module name="micro-blog" target="11" />
+      <module name="micro-blog.main" target="11" />
+      <module name="micro-blog.test" target="11" />
+      <module name="protein-translation" target="11" />
+      <module name="protein-translation.main" target="11" />
+      <module name="protein-translation.test" target="11" />
+      <module name="raindrops" target="11" />
+      <module name="raindrops.main" target="11" />
+      <module name="raindrops.test" target="11" />
+      <module name="resistor-color-duo" target="11" />
+      <module name="resistor-color-duo.main" target="11" />
+      <module name="resistor-color-duo.test" target="11" />
+      <module name="rna-transcription" target="11" />
+      <module name="rna-transcription.main" target="11" />
+      <module name="rna-transcription.test" target="11" />
+      <module name="scrabble-score" target="11" />
+      <module name="scrabble-score.main" target="11" />
+      <module name="scrabble-score.test" target="11" />
+      <module name="space-age" target="11" />
+      <module name="space-age.main" target="11" />
+      <module name="space-age.test" target="11" />
+      <module name="twelve-days" target="11" />
+      <module name="twelve-days.main" target="11" />
+      <module name="twelve-days.test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

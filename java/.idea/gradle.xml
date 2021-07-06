@@ -269,6 +269,15 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/secret-handshake" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/secret-handshake" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/space-age" />
         <option name="gradleJvm" value="adopt-openjdk-11" />
         <option name="modules">
