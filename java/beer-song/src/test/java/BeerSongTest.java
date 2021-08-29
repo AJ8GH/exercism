@@ -20,7 +20,6 @@ public class BeerSongTest {
                 beerSong.sing(99, 1));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void singLastGenericVerse() {
         assertEquals("3 bottles of beer on the wall, 3 bottles of beer.\n" +
@@ -28,7 +27,6 @@ public class BeerSongTest {
                 beerSong.sing(3, 1));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void verseWithTwoBottles() {
         assertEquals("2 bottles of beer on the wall, 2 bottles of beer.\n" +
@@ -36,7 +34,6 @@ public class BeerSongTest {
                 beerSong.sing(2, 1));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void verseWithOneBottle() {
         assertEquals("1 bottle of beer on the wall, 1 bottle of beer.\n" +
@@ -44,7 +41,6 @@ public class BeerSongTest {
                 beerSong.sing(1, 1));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void verseWithZeroBottles() {
         assertEquals("No more bottles of beer on the wall, no more bottles of beer.\n" +

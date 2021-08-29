@@ -4,9 +4,11 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/acronym" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/acronym" />
@@ -14,9 +16,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/anagram" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/anagram" />
@@ -24,9 +28,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/armstrong-numbers" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/armstrong-numbers" />
@@ -34,6 +40,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/beer-song" />
         <option name="modules">
@@ -43,6 +51,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/bob" />
         <option name="modules">
@@ -52,6 +62,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/darts" />
         <option name="modules">
@@ -61,6 +73,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/diamond" />
         <option name="modules">
@@ -70,6 +84,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/difference-of-squares" />
         <option name="modules">
@@ -79,6 +95,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/dnd-character" />
         <option name="modules">
@@ -88,6 +106,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/food-chain" />
         <option name="modules">
@@ -97,6 +117,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/gigasecond" />
         <option name="modules">
@@ -106,6 +128,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/grains" />
         <option name="modules">
@@ -115,9 +139,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/hamming" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/hamming" />
@@ -125,9 +151,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/hello-world" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/hello-world" />
@@ -135,6 +163,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/house" />
         <option name="modules">
@@ -144,9 +174,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/isogram" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/isogram" />
@@ -154,9 +186,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/leap" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/leap" />
@@ -164,6 +198,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/micro-blog" />
         <option name="modules">
@@ -173,9 +209,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/pangram" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/pangram" />
@@ -183,9 +221,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/pig-latin" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/pig-latin" />
@@ -193,6 +233,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/protein-translation" />
         <option name="modules">
@@ -202,6 +244,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/proverb" />
         <option name="modules">
@@ -211,9 +255,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/raindrops" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/raindrops" />
@@ -221,6 +267,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/resistor-color" />
         <option name="modules">
@@ -230,6 +278,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/resistor-color-duo" />
         <option name="modules">
@@ -239,9 +289,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/reverse-string" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/reverse-string" />
@@ -249,9 +301,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/rna-transcription" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/rna-transcription" />
@@ -259,6 +313,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/scrabble-score" />
         <option name="modules">
@@ -268,8 +324,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/secret-handshake" />
+        <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/secret-handshake" />
@@ -277,9 +336,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/space-age" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/space-age" />
@@ -287,6 +348,8 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twelve-days" />
         <option name="modules">
@@ -296,9 +359,11 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/two-fer" />
-        <option name="gradleJvm" value="adopt-openjdk-11" />
+        <option name="gradleJvm" value="adopt-openjdk-11 (2) (2)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/two-fer" />
