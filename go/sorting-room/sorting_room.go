@@ -1,8 +1,10 @@
 package sorting
 
+import "strconv"
+
 // DescribeNumber should return a string describing the number.
 func DescribeNumber(f float64) string {
-	panic("Please implement DescribeNumber")
+	return "This is the number " + strconv.FormatFloat(f, 'f', 1, 64)
 }
 
 type NumberBox interface {
@@ -11,7 +13,8 @@ type NumberBox interface {
 
 // DescribeNumberBox should return a string describing the NumberBox.
 func DescribeNumberBox(nb NumberBox) string {
-	panic("Please implement DescribeNumberBox")
+	return "This is a box containing the number " +
+		strconv.FormatFloat(float64(nb.Number()), 'f', 1, 64)
 }
 
 type FancyNumber struct {
@@ -29,15 +32,36 @@ type FancyNumberBox interface {
 // ExtractFancyNumber should return the integer value for a FancyNumber
 // and 0 if any other FancyNumberBox is supplied.
 func ExtractFancyNumber(fnb FancyNumberBox) int {
-	panic("Please implement ExtractFancyNumber")
+	switch v := fnb.(type) {
+	case FancyNumber:
+		vv, err := strconv.Atoi(v.Value())
+		if err != nil {
+			return 0
+		}
+		return vv
+	default:
+		return 0
+	}
 }
 
 // DescribeFancyNumberBox should return a string describing the FancyNumberBox.
 func DescribeFancyNumberBox(fnb FancyNumberBox) string {
-	panic("Please implement DescribeFancyNumberBox")
+	return "This is a fancy box containing the number " +
+		strconv.FormatFloat((float64(ExtractFancyNumber(fnb))), 'f', 1, 64)
 }
 
 // DescribeAnything should return a string describing whatever it contains.
 func DescribeAnything(i interface{}) string {
-	panic("Please implement DescribeAnything")
+	switch v := i.(type) {
+	case float64:
+		return DescribeNumber(v)
+	case int:
+		return DescribeNumber(float64(v))
+	case NumberBox:
+		return DescribeNumberBox(v)
+	case FancyNumberBox:
+		return DescribeFancyNumberBox(v)
+	default:
+		return "Return to sender"
+	}
 }
