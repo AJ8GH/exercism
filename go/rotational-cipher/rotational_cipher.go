@@ -1,37 +1,25 @@
 package rotationalcipher
 
-import (
-	"strings"
-	"unicode"
-)
-
 const lettersInAlphabet = 26
-
-var alphabet = "abcdefghijklmnopqrstuvwxyz"
+const lowerA = 97
+const lowerZ = 122
+const upperA = 65
+const upperZ = 90
 
 func RotationalCipher(plain string, shiftKey int) string {
 	out := []rune{}
 	for _, r := range plain {
-		rotated := rotate(r, shiftKey)
-		out = append(out, rotated)
+		out = append(out, rotate(r, shiftKey))
 	}
 	return string(out)
 }
 
-func rotate(r rune, shiftKey int) rune {
-	rotate := unicode.ToLower(r)
-	if !strings.ContainsRune(alphabet, rotate) {
-		return r
+func rotate(r rune, shiftKey int) (rotated rune) {
+	if (r >= lowerA && r <= lowerZ) || (r >= upperA && r <= upperZ) {
+		if (r <= upperZ && int(r)+shiftKey > upperZ) || (int(r)+shiftKey > lowerZ) {
+			return rune(int(r) + shiftKey - lettersInAlphabet)
+		}
+		return rune(int(r) + shiftKey)
 	}
-
-	currentIndex := strings.IndexRune(alphabet, rotate)
-	newIndex := currentIndex + shiftKey
-	newIndex %= lettersInAlphabet
-	rotate = rune(alphabet[newIndex])
-
-	if unicode.IsUpper(r) {
-		rotate = unicode.ToUpper(rotate)
-	}
-
-	return rotate
+	return r
 }
