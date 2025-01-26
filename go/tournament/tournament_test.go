@@ -111,11 +111,20 @@ func TestTallyHappy(t *testing.T) {
 			err := Tally(reader, &buffer)
 			// We don't expect errors for any of the test cases
 			if err != nil {
-				t.Fatalf("Tally for input named %q returned unexpected error %v", tc.description, err)
+				t.Fatalf(
+					"Tally for input named %q returned unexpected error %v",
+					tc.description,
+					err,
+				)
 			}
 			got := buffer.String()
 			if got != tc.expected {
-				t.Fatalf("Tally for input named %q returned unexpected value\ngot: %s\nwant: %s", tc.description, got, tc.expected)
+				t.Fatalf(
+					"Tally for input named %q returned unexpected value\ngot: %s\nwant: %s",
+					tc.description,
+					got,
+					tc.expected,
+				)
 			}
 		})
 	}
