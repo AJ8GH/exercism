@@ -1,7 +1,5 @@
 package stringset
 
-import "hash/fnv"
-
 // Implement Set as a collection of unique string values.
 //
 // For Set.String, use '{' and '}', output elements as double-quoted strings
@@ -10,89 +8,30 @@ import "hash/fnv"
 // Format the empty set as {}.
 
 const (
-	initialSize = 20
+	initialCapacity = 20
+	loadFactor      = 0.75
 )
 
 type Set struct {
-	elements [][]string
-	size     int
+	elements map[string]bool
 }
 
 func New() Set {
-	return Set{
-		elements: make([][]string, initialSize),
-	}
+	return Set{elements: map[string]bool{}}
 }
 
 func NewFromSlice(l []string) Set {
-	s := Set{}
-	s.resize(len(l) * 2)
+	s := New()
 	for _, v := range l {
-		add(&s, v)
+		s.Add(v)
 	}
 	return s
 }
 
-func hash(s string) int {
-	h := fnv.New32a()
-	h.Write([]byte(s))
-	return int(h.Sum32())
-}
-
-func elementsForVal(s *Set, v string) []string {
-	h := hash(v)
-	i := h % len(s.elements)
-	els := s.elements[i]
-	if els == nil {
-		return []string{}
-	}
-
-	return els
-}
-
-func add(s *Set, e string) {
-	if s.size < len(s.elements) || s.size < initialSize {
-		newSize := s.size * 2
-		if s.size == 0 {
-			newSize = initialSize
-		}
-		s.resize(newSize)
-	}
-	h := hash(e)
-	i := h % len(s.elements)
-	els := elementsForVal(s, e)
-	for _, v := range els {
-		if v == e {
-			return
-		}
-	}
-	s.size++
-	s.elements[i] = append(els, e)
-}
-
-func (s *Set) resize(size int) Set {
-	newElements := make([][]string, size)
-	for i := 0; i < size; i++ {
-		newElements[i] = []string{}
-	}
-	oldElements := s.elements
-	s.elements = newElements
-	if s.size > 0 {
-		for _, v := range oldElements {
-			for _, w := range v {
-				add(s, w)
-			}
-		}
-	}
-	return *s
-}
-
 func (s Set) String() string {
 	out := "{"
-	for _, v := range s.elements {
-		for _, w := range v {
-			out += "\"" + w + "\"" + ", "
-		}
+	for e := range s.elements {
+		out += "\"" + e + "\"" + ", "
 	}
 	if len(out) > 1 {
 		out = out[:len(out)-2]
@@ -101,43 +40,30 @@ func (s Set) String() string {
 }
 
 func (s Set) IsEmpty() bool {
-	return s.size == 0
+	return len(s.elements) == 0
 }
 
 func (s Set) Has(elem string) bool {
-	if s.size == 0 {
-		return false
-	}
-	els := elementsForVal(&s, elem)
-	for _, v := range els {
-		if v == elem {
-			return true
-		}
-	}
-	return false
+	return s.elements[elem]
 }
 
 func (s Set) Add(elem string) {
-	add(&s, elem)
+	s.elements[elem] = true
 }
 
 func Subset(s1, s2 Set) bool {
-	for _, els := range s1.elements {
-		for _, e := range els {
-			if !s2.Has(e) {
-				return false
-			}
+	for e := range s1.elements {
+		if !s2.Has(e) {
+			return false
 		}
 	}
 	return true
 }
 
 func Disjoint(s1, s2 Set) bool {
-	for _, els := range s1.elements {
-		for _, e := range els {
-			if s2.Has(e) {
-				return false
-			}
+	for e := range s1.elements {
+		if s2.Has(e) {
+			return false
 		}
 	}
 	return true
@@ -148,13 +74,32 @@ func Equal(s1, s2 Set) bool {
 }
 
 func Intersection(s1, s2 Set) Set {
-	panic("Please implement the Intersection function")
+	intersection := New()
+	for e := range s1.elements {
+		if s2.Has(e) {
+			intersection.Add(e)
+		}
+	}
+	return intersection
 }
 
 func Difference(s1, s2 Set) Set {
-	panic("Please implement the Difference function")
+	difference := New()
+	for e := range s1.elements {
+		if !s2.Has(e) {
+			difference.Add(e)
+		}
+	}
+	return difference
 }
 
 func Union(s1, s2 Set) Set {
-	panic("Please implement the Union function")
+	union := New()
+	for e := range s1.elements {
+		union.Add(e)
+	}
+	for e := range s2.elements {
+		union.Add(e)
+	}
+	return union
 }
