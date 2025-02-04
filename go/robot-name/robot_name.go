@@ -1,56 +1,66 @@
 package robotname
 
 import (
-	"fmt"
-	"math/rand"
+	"errors"
+	"strconv"
 )
 
 const (
-	ceil        = 10
-	lenAlpha    = 26
-	alphaOffset = int('A')
-	template    = "%s%s%d%d%d"
+	numCeil  = 9
+	numFloor = 0
+	letCeil  = 'Z'
+	letFloor = 'A'
 )
 
-// Define the Robot type here.
+var (
+	lets        = []string{}
+	nums        = []string{}
+	names       = []string{}
+	lastNameIdx = -1
+)
+
 type Robot struct {
 	name string
 }
 
-var names = map[string]bool{}
-
 func (r *Robot) Name() (string, error) {
-	if r.name == "" {
-		r.name = genName()
+	if lastNameIdx == -1 {
+		genNames()
 	}
+
+	if r.name == "" {
+		if lastNameIdx >= len(names)-1 {
+			return "", errors.New("too many names")
+		}
+
+		lastNameIdx++
+		r.name = names[lastNameIdx]
+	}
+
 	return r.name, nil
 }
 
 func (r *Robot) Reset() {
-	r.name = genName()
+	r.name = ""
 }
 
-func randLetter() string {
-	n := rand.Intn(lenAlpha) + alphaOffset
-	return string(rune(n))
-}
-
-func genName() string {
-	name := createName()
-	for names[name] {
-		name = createName()
+func genNames() {
+	for i := numFloor; i <= numCeil; i++ {
+		nums = append(nums, strconv.Itoa(i))
 	}
-	names[name] = true
-	return name
-}
+	for i := letFloor; i <= letCeil; i++ {
+		lets = append(lets, string(i))
+	}
 
-func createName() string {
-	return fmt.Sprintf(
-		template,
-		randLetter(),
-		randLetter(),
-		rand.Intn(ceil),
-		rand.Intn(ceil),
-		rand.Intn(ceil),
-	)
+	for _, l1 := range lets {
+		for _, l2 := range lets {
+			for _, n1 := range nums {
+				for _, n2 := range nums {
+					for _, n3 := range nums {
+						names = append(names, l1+l2+n1+n2+n3)
+					}
+				}
+			}
+		}
+	}
 }
