@@ -1,44 +1,148 @@
 package linkedlist
 
-// Define List and Node types here.
-// Note: The tests expect Node type to include an exported field with name Value to pass.
+import "errors"
+
+type (
+	Node struct {
+		Value interface{}
+		next  *Node
+		prev  *Node
+	}
+
+	List struct {
+		head *Node
+		tail *Node
+	}
+)
+
+func nodeOf(val interface{}) *Node {
+	return &Node{Value: val}
+}
+
+func listOf(head, tail *Node) *List {
+	return &List{head: head, tail: tail}
+}
 
 func NewList(elements ...interface{}) *List {
-	panic("Please implement the NewList function")
+	var head *Node
+	var tail *Node
+	var current *Node
+	for i, v := range elements {
+		node := nodeOf(v)
+		if i == 0 {
+			head = node
+		}
+		if i == len(elements)-1 {
+			tail = node
+		}
+		if current != nil {
+			current.next = node
+			node.prev = current
+		}
+		current = node
+	}
+	return listOf(head, tail)
 }
 
 func (n *Node) Next() *Node {
-	panic("Please implement the Next function")
+	return n.next
 }
 
 func (n *Node) Prev() *Node {
-	panic("Please implement the Prev function")
+	return n.prev
 }
 
 func (l *List) Unshift(v interface{}) {
-	panic("Please implement the Unshift function")
+	node := nodeOf(v)
+	prevHead := l.head
+	if prevHead == nil {
+		l.head = node
+		l.tail = node
+		return
+	}
+
+	prevHead.prev = node
+	node.next = prevHead
+	l.head = node
 }
 
 func (l *List) Push(v interface{}) {
-	panic("Please implement the Push function")
+	node := nodeOf(v)
+	prevTail := l.tail
+	if prevTail == nil {
+		l.tail = node
+	}
+	if l.head == nil {
+		l.head = node
+		return
+	}
+
+	prevTail.next = node
+	node.prev = prevTail
+	l.tail = node
 }
 
 func (l *List) Shift() (interface{}, error) {
-	panic("Please implement the Shift function")
+	if l.head == nil {
+		return nil, errors.New("no head")
+	}
+	n := l.head
+	if n == l.tail {
+		l.head = nil
+		l.tail = nil
+	} else {
+		l.head = n.next
+		l.head.prev = nil
+	}
+	return n.Value, nil
 }
 
 func (l *List) Pop() (interface{}, error) {
-	panic("Please implement the Pop function")
+	if l.tail == nil {
+		return nil, errors.New("no tail")
+	}
+	n := l.tail
+	if n == l.head {
+		l.head = nil
+		l.tail = nil
+	} else {
+		l.tail = n.prev
+		l.tail.next = nil
+	}
+	return n.Value, nil
 }
 
 func (l *List) Reverse() {
-	panic("Please implement the Reverse function")
+	nodes := []*Node{}
+
+	current := l.tail
+	for current != nil {
+		nodes = append(nodes, current)
+		current = current.prev
+	}
+
+	current = nil
+	for i, v := range nodes {
+		v.next = nil
+		v.prev = nil
+		if i == 0 {
+			l.head = v
+		}
+		if i == len(nodes)-1 {
+			l.tail = v
+		}
+		if current != nil {
+			current.next = v
+			v.prev = current
+		}
+		current = v
+	}
 }
 
 func (l *List) First() *Node {
-	panic("Please implement the First function")
+	return l.head
 }
 
 func (l *List) Last() *Node {
-	panic("Please implement the Last function")
+	return l.tail
 }
