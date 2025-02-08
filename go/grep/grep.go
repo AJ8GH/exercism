@@ -22,6 +22,9 @@ func Search(pattern string, flags, files []string) (results []string) {
 		b, _ := os.ReadFile(v)
 		lines := strings.Split(string(b), "\n")
 		for i, line := range lines {
+			if line == "" {
+				continue
+			}
 			results = appendIfMatch(i+1, len(files), v, line, pattern, results)
 		}
 	}
@@ -67,8 +70,9 @@ func isMatch(line, pattern string) bool {
 	}
 	if entire {
 		matched = lineToCheck == patternToCheck
+	} else {
+		matched = strings.Contains(lineToCheck, patternToCheck)
 	}
-	matched = strings.Contains(lineToCheck, patternToCheck)
 	if invert {
 		return !matched
 	}
