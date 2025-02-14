@@ -29,15 +29,29 @@ var validTestCases = []testCase{
 
 func TestCanQueenAttackValid(t *testing.T) {
 	for _, tc := range validTestCases {
-		t.Run(fmt.Sprintf("%s, white queen: %s, black queen: %s", tc.description, tc.pos1, tc.pos2), func(t *testing.T) {
-			got, err := CanQueenAttack(tc.pos1, tc.pos2)
-			if err != nil {
-				t.Fatalf("CanQueenAttack(%q, %q) returned unexpected error %v", tc.pos1, tc.pos2, err)
-			}
-			if got != tc.expected {
-				t.Fatalf("CanQueenAttack(%q, %q) = %v, want: %v", tc.pos1, tc.pos2, got, tc.expected)
-			}
-		})
+		t.Run(
+			fmt.Sprintf("%s, white queen: %s, black queen: %s", tc.description, tc.pos1, tc.pos2),
+			func(t *testing.T) {
+				got, err := CanQueenAttack(tc.pos1, tc.pos2)
+				if err != nil {
+					t.Fatalf(
+						"CanQueenAttack(%q, %q) returned unexpected error %v",
+						tc.pos1,
+						tc.pos2,
+						err,
+					)
+				}
+				if got != tc.expected {
+					t.Fatalf(
+						"CanQueenAttack(%q, %q) = %v, want: %v",
+						tc.pos1,
+						tc.pos2,
+						got,
+						tc.expected,
+					)
+				}
+			},
+		)
 	}
 }
 
@@ -52,12 +66,15 @@ var invalidTestCases = []testCase{
 
 func TestCanQueenAttackInvalid(t *testing.T) {
 	for _, tc := range invalidTestCases {
-		t.Run(fmt.Sprintf("%s, white queen: %s, black queen: %s", tc.description, tc.pos1, tc.pos2), func(t *testing.T) {
-			got, err := CanQueenAttack(tc.pos1, tc.pos2)
-			if err == nil {
-				t.Fatalf("CanQueenAttack(%q, %q) expected error, got %v", tc.pos1, tc.pos2, got)
-			}
-		})
+		t.Run(
+			fmt.Sprintf("%s, white queen: %s, black queen: %s", tc.description, tc.pos1, tc.pos2),
+			func(t *testing.T) {
+				got, err := CanQueenAttack(tc.pos1, tc.pos2)
+				if err == nil {
+					t.Fatalf("CanQueenAttack(%q, %q) expected error, got %v", tc.pos1, tc.pos2, got)
+				}
+			},
+		)
 	}
 }
 
@@ -66,7 +83,7 @@ func BenchmarkCanQueenAttack(b *testing.B) {
 	if testing.Short() {
 		b.Skip("skipping benchmark in short mode.")
 	}
-	var allTestCases = append(validTestCases, invalidTestCases...)
+	allTestCases := append(validTestCases, invalidTestCases...)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		for _, test := range allTestCases {
