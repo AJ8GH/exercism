@@ -1,35 +1,90 @@
 package paasio
 
-import "io"
+import (
+	"io"
+	"sync"
+)
 
-// Define readCounter and writeCounter types here.
+type (
+	writeCounter struct {
+		writer io.Writer
+		bytes  int64
+		ops    int
+		mu     *sync.Mutex
+	}
+
+	readCounter struct {
+		reader io.Reader
+		bytes  int64
+		ops    int
+		mu     *sync.Mutex
+	}
+
+	readWriteCounter struct {
+		readCounter  ReadCounter
+		writeCounter WriteCounter
+	}
+)
 
 // For the return of the function NewReadWriteCounter, you must also define a type that satisfies the ReadWriteCounter interface.
 
 func NewWriteCounter(writer io.Writer) WriteCounter {
-	panic("Please implement the NewWriterCounter function")
+	return &writeCounter{writer: writer, mu: &sync.Mutex{}}
 }
 
 func NewReadCounter(reader io.Reader) ReadCounter {
-	panic("Please implement the NewReadCounter function")
+	return &readCounter{reader: reader, mu: &sync.Mutex{}}
 }
 
 func NewReadWriteCounter(readwriter io.ReadWriter) ReadWriteCounter {
-	panic("Please implement the NewReadWriteCounter function")
+	return &readWriteCounter{
+		readCounter:  NewReadCounter(readwriter),
+		writeCounter: NewWriteCounter(readwriter),
+	}
 }
 
 func (rc *readCounter) Read(p []byte) (int, error) {
-	panic("Please implement the Read function")
+	rc.mu.Lock()
+	defer rc.mu.Unlock()
+	n, err := rc.reader.Read(p)
+	rc.bytes += int64(n)
+	rc.ops++
+	return n, err
 }
 
 func (rc *readCounter) ReadCount() (int64, int) {
-	panic("Please implement the ReadCount function")
+	rc.mu.Lock()
+	defer rc.mu.Unlock()
+	return rc.bytes, rc.ops
 }
 
 func (wc *writeCounter) Write(p []byte) (int, error) {
-	panic("Please implement the Write function")
+	wc.mu.Lock()
+	defer wc.mu.Unlock()
+	n, err := wc.writer.Write(p)
+	wc.bytes += int64(n)
+	wc.ops++
+	return n, err
 }
 
 func (wc *writeCounter) WriteCount() (int64, int) {
-	panic("Please implement the WriteCount function")
+	wc.mu.Lock()
+	defer wc.mu.Unlock()
+	return wc.bytes, wc.ops
+}
+
+func (rwc *readWriteCounter) Read(p []byte) (int, error) {
+	return rwc.readCounter.Read(p)
+}
+
+func (rwc *readWriteCounter) Write(p []byte) (int, error) {
+	return rwc.writeCounter.Write(p)
+}
+
+func (rwc *readWriteCounter) ReadCount() (int64, int) {
+	return rwc.readCounter.ReadCount()
+}
+
+func (rwc *readWriteCounter) WriteCount() (int64, int) {
+	return rwc.writeCounter.WriteCount()
 }
