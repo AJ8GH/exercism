@@ -16,19 +16,19 @@ func NewBst(i int) *BinarySearchTree {
 func (bst *BinarySearchTree) Insert(i int) {
 	switch {
 	case i > bst.data:
-		right := bst.right
-		if right == nil {
-			bst.right = NewBst(i)
-			return
-		}
-		right.Insert(i)
+		insert(
+			bst,
+			i,
+			func(b *BinarySearchTree) *BinarySearchTree { return b.right },
+			func(b *BinarySearchTree, c *BinarySearchTree) { b.right = c },
+		)
 	default:
-		left := bst.left
-		if left == nil {
-			bst.left = NewBst(i)
-			return
-		}
-		left.Insert(i)
+		insert(
+			bst,
+			i,
+			func(b *BinarySearchTree) *BinarySearchTree { return b.left },
+			func(b *BinarySearchTree, c *BinarySearchTree) { b.left = c },
+		)
 	}
 }
 
@@ -51,4 +51,18 @@ func (bst *BinarySearchTree) SortedData() (sorted []int) {
 		sorted = append(sorted, node.right.SortedData()...)
 	}
 	return sorted
+}
+
+func insert(
+	bst *BinarySearchTree,
+	i int,
+	get func(*BinarySearchTree) *BinarySearchTree,
+	set func(*BinarySearchTree, *BinarySearchTree),
+) {
+	node := get(bst)
+	if node == nil {
+		set(bst, NewBst(i))
+		return
+	}
+	node.Insert(i)
 }
