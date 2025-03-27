@@ -7,136 +7,113 @@ import (
 	"strings"
 )
 
+type markdownContainer struct {
+	header     int
+	markdown   string
+	pos        int
+	list       int
+	listOpened bool
+	html       string
+	he         bool
+	char       byte
+}
+
 // Render translates markdown to HTML
 func Render(markdown string) string {
-	header := 0
 	markdown = strings.Replace(markdown, "__", "<strong>", 1)
 	markdown = strings.Replace(markdown, "__", "</strong>", 1)
 	markdown = strings.Replace(markdown, "_", "<em>", 1)
 	markdown = strings.Replace(markdown, "_", "</em>", 1)
-	pos := 0
-	list := 0
-	listOpened := false
-	html := ""
-	he := false
+
+	mc := markdownContainer{markdown: markdown}
 
 	for {
-
-		char := markdown[pos]
-
-		if char == '#' {
-			char, header, pos, he, markdown, html = handleHash(
-				char,
-				header,
-				pos,
-				he,
-				markdown,
-				html,
-			)
+		mc.char = markdown[mc.pos]
+		if mc.char == '#' {
+			mc = handleHash(mc)
 			continue
 		}
 
-		he = true
-
-		if char == '*' && header == 0 && strings.Contains(markdown, "\n") {
-			list, pos, html, listOpened, char = handleStar(list, pos, html, listOpened, char)
+		mc.he = true
+		if mc.char == '*' && mc.header == 0 && strings.Contains(markdown, "\n") {
+			mc = handleStar(mc)
 			continue
 		}
 
-		if char == '\n' {
-			listOpened, markdown, html, list, pos, header = handleNewLine(
-				listOpened,
-				markdown,
-				html,
-				list,
-				pos,
-				header,
-			)
+		if mc.char == '\n' {
+			mc = handleNewLine(mc)
 			continue
 		}
-		html += string(char)
-		pos++
-		if pos >= len(markdown) {
+
+		mc.html += string(mc.char)
+		mc.pos++
+		if mc.pos >= len(markdown) {
 			break
 		}
 	}
 
 	switch {
-	case header == 7:
-		return html + "</p>"
-	case header > 0:
-		return html + fmt.Sprintf("</h%d>", header)
-	case list > 0:
-		return html + "</li></ul>"
-	case strings.Contains(html, "<p>"):
-		return html + "</p>"
+	case mc.header == 7:
+		return mc.html + "</p>"
+	case mc.header > 0:
+		return mc.html + fmt.Sprintf("</h%d>", mc.header)
+	case mc.list > 0:
+		return mc.html + "</li></ul>"
+	case strings.Contains(mc.html, "<p>"):
+		return mc.html + "</p>"
 	}
-	return "<p>" + html + "</p>"
+	return "<p>" + mc.html + "</p>"
 }
 
-func handleHash(
-	char byte,
-	header, pos int,
-	he bool,
-	markdown, html string,
-) (byte, int, int, bool, string, string) {
-	for char == '#' {
-		header++
-		pos++
-		char = markdown[pos]
+func handleHash(mc markdownContainer) markdownContainer {
+	for mc.char == '#' {
+		mc.header++
+		mc.pos++
+		mc.char = mc.markdown[mc.pos]
 	}
 
 	switch {
-	case header == 7:
-		html += fmt.Sprintf("<p>%s ", strings.Repeat("#", header))
-	case he:
-		html += "# "
-		header--
+	case mc.header == 7:
+		mc.html += fmt.Sprintf("<p>%s ", strings.Repeat("#", mc.header))
+	case mc.he:
+		mc.html += "# "
+		mc.header--
 	default:
-		html += fmt.Sprintf("<h%d>", header)
+		mc.html += fmt.Sprintf("<h%d>", mc.header)
 	}
-	pos++
-	return char, header, pos, he, markdown, html
+	mc.pos++
+	return mc
 }
 
-func handleNewLine(
-	listOpened bool,
-	markdown, html string,
-	list, pos, header int,
-) (bool, string, string, int, int, int) {
+func handleNewLine(mc markdownContainer) markdownContainer {
 	switch {
-	case listOpened && strings.LastIndex(markdown, "\n") == pos &&
-		strings.LastIndex(markdown, "\n") > strings.LastIndex(markdown, "*"):
-		html += "</li></ul><p>"
-		listOpened = false
-		list = 0
-	case list > 0 && listOpened:
-		html += "</li>"
-		listOpened = false
-	case header > 0:
-		html += fmt.Sprintf("</h%d>", header)
-		header = 0
+	case mc.listOpened && strings.LastIndex(mc.markdown, "\n") == mc.pos &&
+		strings.LastIndex(mc.markdown, "\n") > strings.LastIndex(mc.markdown, "*"):
+		mc.html += "</li></ul><p>"
+		mc.listOpened = false
+		mc.list = 0
+	case mc.list > 0 && mc.listOpened:
+		mc.html += "</li>"
+		mc.listOpened = false
+	case mc.header > 0:
+		mc.html += fmt.Sprintf("</h%d>", mc.header)
+		mc.header = 0
 	}
-	pos++
-	return listOpened, markdown, html, list, pos, header
+	mc.pos++
+	return mc
 }
 
-func handleStar(
-	list, pos int,
-	html string,
-	listOpened bool,
-	char byte,
-) (int, int, string, bool, byte) {
-	if list == 0 {
-		html += "<ul>"
+func handleStar(mc markdownContainer) markdownContainer {
+	if mc.list == 0 {
+		mc.html += "<ul>"
 	}
-	list++
-	if !listOpened {
-		html += "<li>"
-		listOpened = true
+	mc.list++
+	if !mc.listOpened {
+		mc.html += "<li>"
+		mc.listOpened = true
 	} else {
-		html += string(char) + " "
+		mc.html += string(mc.char) + " "
 	}
-	pos += 2
-	return list, pos, html, listOpened, char
+	mc.pos += 2
+	return mc
 }
