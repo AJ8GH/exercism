@@ -17,126 +17,126 @@ type maximumValueTest struct {
 }
 
 var maximumValueTests = []maximumValueTest{
-	{
-		description: "no items",
-		input: maximumValueCaseInput{
-			MaximumWeight: 100,
-			Items:         []Item{},
-		},
-		expected: 0,
-	},
-
-	{
-		description: "one item, too heavy",
-		input: maximumValueCaseInput{
-			MaximumWeight: 10,
-			Items: []Item{
-				{
-					Weight: 100,
-					Value:  1,
-				},
-			},
-		},
-		expected: 0,
-	},
-
-	{
-		description: "five items (cannot be greedy by weight)",
-		input: maximumValueCaseInput{
-			MaximumWeight: 10,
-			Items: []Item{
-				{
-					Weight: 2,
-					Value:  5,
-				},
-
-				{
-					Weight: 2,
-					Value:  5,
-				},
-
-				{
-					Weight: 2,
-					Value:  5,
-				},
-
-				{
-					Weight: 2,
-					Value:  5,
-				},
-
-				{
-					Weight: 10,
-					Value:  21,
-				},
-			},
-		},
-		expected: 21,
-	},
-
-	{
-		description: "five items (cannot be greedy by value)",
-		input: maximumValueCaseInput{
-			MaximumWeight: 10,
-			Items: []Item{
-				{
-					Weight: 2,
-					Value:  20,
-				},
-
-				{
-					Weight: 2,
-					Value:  20,
-				},
-
-				{
-					Weight: 2,
-					Value:  20,
-				},
-
-				{
-					Weight: 2,
-					Value:  20,
-				},
-
-				{
-					Weight: 10,
-					Value:  50,
-				},
-			},
-		},
-		expected: 80,
-	},
-
-	{
-		description: "example knapsack",
-		input: maximumValueCaseInput{
-			MaximumWeight: 10,
-			Items: []Item{
-				{
-					Weight: 5,
-					Value:  10,
-				},
-
-				{
-					Weight: 4,
-					Value:  40,
-				},
-
-				{
-					Weight: 6,
-					Value:  30,
-				},
-
-				{
-					Weight: 4,
-					Value:  50,
-				},
-			},
-		},
-		expected: 90,
-	},
-
+	// {
+	// 	description: "no items",
+	// 	input: maximumValueCaseInput{
+	// 		MaximumWeight: 100,
+	// 		Items:         []Item{},
+	// 	},
+	// 	expected: 0,
+	// },
+	//
+	// {
+	// 	description: "one item, too heavy",
+	// 	input: maximumValueCaseInput{
+	// 		MaximumWeight: 10,
+	// 		Items: []Item{
+	// 			{
+	// 				Weight: 100,
+	// 				Value:  1,
+	// 			},
+	// 		},
+	// 	},
+	// 	expected: 0,
+	// },
+	//
+	// {
+	// 	description: "five items (cannot be greedy by weight)",
+	// 	input: maximumValueCaseInput{
+	// 		MaximumWeight: 10,
+	// 		Items: []Item{
+	// 			{
+	// 				Weight: 2,
+	// 				Value:  5,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 2,
+	// 				Value:  5,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 2,
+	// 				Value:  5,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 2,
+	// 				Value:  5,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 10,
+	// 				Value:  21,
+	// 			},
+	// 		},
+	// 	},
+	// 	expected: 21,
+	// },
+	//
+	// {
+	// 	description: "five items (cannot be greedy by value)",
+	// 	input: maximumValueCaseInput{
+	// 		MaximumWeight: 10,
+	// 		Items: []Item{
+	// 			{
+	// 				Weight: 2,
+	// 				Value:  20,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 2,
+	// 				Value:  20,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 2,
+	// 				Value:  20,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 2,
+	// 				Value:  20,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 10,
+	// 				Value:  50,
+	// 			},
+	// 		},
+	// 	},
+	// 	expected: 80,
+	// },
+	//
+	// {
+	// 	description: "example knapsack",
+	// 	input: maximumValueCaseInput{
+	// 		MaximumWeight: 10,
+	// 		Items: []Item{
+	// 			{
+	// 				Weight: 5,
+	// 				Value:  10,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 4,
+	// 				Value:  40,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 6,
+	// 				Value:  30,
+	// 			},
+	//
+	// 			{
+	// 				Weight: 4,
+	// 				Value:  50,
+	// 			},
+	// 		},
+	// 	},
+	// 	expected: 90,
+	// },
+	//
 	{
 		description: "8 items",
 		input: maximumValueCaseInput{

@@ -7,21 +7,16 @@ type Item struct {
 }
 
 type knapsack struct {
-	weight, value, numItems int
-	items                   []Item
+	weight, value int
+	indices       map[int]bool
 }
 
 // Knapsack takes in a maximum carrying capacity and a collection of items
 // and returns the maximum value that can be carried by the knapsack
 // given that the knapsack can only carry a maximum weight given by maximumWeight
 func Knapsack(maximumWeight int, items []Item) int {
-	knapsacks := []knapsack{}
-	for _, v := range getCombos(items) {
-		knapsacks = append(knapsacks, knapsackOf(v))
-	}
-
 	maxValue := 0
-	for _, v := range knapsacks {
+	for _, v := range getCombos(items) {
 		if v.weight <= maximumWeight && v.value > maxValue {
 			maxValue = v.value
 		}
@@ -33,49 +28,64 @@ func Knapsack(maximumWeight int, items []Item) int {
 func knapsackOf(items map[int]Item) knapsack {
 	knapsack := knapsack{}
 	for _, v := range items {
-		knapsack.numItems++
-		knapsack.items = append(knapsack.items, v)
 		knapsack.weight += v.Weight
 		knapsack.value += v.Value
 	}
 	return knapsack
 }
 
-func getCombos(items []Item) (out []map[int]Item) {
+func getCombos(items []Item) (out []knapsack) {
 	if len(items) == 0 {
 		return out
 	}
 
 	for i, v := range items {
-		out = append(out, map[int]Item{i: v})
+		out = append(
+			out,
+			knapsack{weight: v.Weight, value: v.Value, indices: map[int]bool{i: true}},
+		)
 	}
 
+	currentKnapsacks := make([]knapsack, len(out))
+	copy(currentKnapsacks, out)
+
 	for i := 0; i < len(items)-1; i++ {
-		for j, item := range items {
-			for _, m := range out {
+		newOnes := []knapsack{}
+
+		for i, v := range currentKnapsacks {
+			for j := i + 1; j < len(items); j++ {
+				item := items[j]
+				m := v.indices
 				if !mapContains(m, j) {
-					mCopy := copyMap(m)
-					mCopy[j] = item
-					if !sliceContains(out, mCopy) {
-						out = append(out, mCopy)
-					}
+					newM := copyMap(m)
+					newM[j] = true
+					newOnes = append(
+						newOnes,
+						knapsack{
+							weight:  v.weight + item.Weight,
+							value:   v.value + item.Value,
+							indices: newM,
+						},
+					)
 				}
 			}
 		}
-	}
 
+		out = append(out, newOnes...)
+		currentKnapsacks = newOnes
+	}
 	return out
 }
 
-func copyMap(m map[int]Item) map[int]Item {
-	out := map[int]Item{}
+func copyMap[V any](m map[int]V) map[int]V {
+	out := map[int]V{}
 	for k, v := range m {
 		out[k] = v
 	}
 	return out
 }
 
-func mapContains(m map[int]Item, k int) bool {
+func mapContains[V any](m map[int]V, k int) bool {
 	_, exists := m[k]
 	return exists
 }
