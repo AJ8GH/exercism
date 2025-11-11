@@ -15,14 +15,7 @@ type knapsack struct {
 // and returns the maximum value that can be carried by the knapsack
 // given that the knapsack can only carry a maximum weight given by maximumWeight
 func Knapsack(maximumWeight int, items []Item) int {
-	maxValue := 0
-	for _, v := range getCombos(items) {
-		if v.weight <= maximumWeight && v.value > maxValue {
-			maxValue = v.value
-		}
-	}
-
-	return maxValue
+	return getMaxValue(items, maximumWeight)
 }
 
 func knapsackOf(items map[int]Item) knapsack {
@@ -34,47 +27,58 @@ func knapsackOf(items map[int]Item) knapsack {
 	return knapsack
 }
 
-func getCombos(items []Item) (out []knapsack) {
+func getMaxValue(items []Item, maxWeight int) (max int) {
 	if len(items) == 0 {
-		return out
+		return max
 	}
 
+	all := []knapsack{}
+
 	for i, v := range items {
-		out = append(
-			out,
-			knapsack{weight: v.Weight, value: v.Value, indices: map[int]bool{i: true}},
+		ks := knapsack{weight: v.Weight, value: v.Value, indices: map[int]bool{i: true}}
+		if ks.weight <= maxWeight && ks.value > max {
+			max = ks.value
+		}
+		all = append(
+			all,
+			ks,
 		)
 	}
 
-	currentKnapsacks := make([]knapsack, len(out))
-	copy(currentKnapsacks, out)
+	currentKnapsacks := make([]knapsack, len(all))
+	copy(currentKnapsacks, all)
 
 	for i := 0; i < len(items)-1; i++ {
 		newOnes := []knapsack{}
 
-		for i, v := range currentKnapsacks {
-			for j := i + 1; j < len(items); j++ {
-				item := items[j]
+		for _, v := range currentKnapsacks {
+			for j, item := range items {
 				m := v.indices
 				if !mapContains(m, j) {
 					newM := copyMap(m)
 					newM[j] = true
-					newOnes = append(
-						newOnes,
-						knapsack{
-							weight:  v.weight + item.Weight,
-							value:   v.value + item.Value,
-							indices: newM,
-						},
-					)
+					ks := knapsack{
+						weight:  v.weight + item.Weight,
+						value:   v.value + item.Value,
+						indices: newM,
+					}
+					if ks.weight <= maxWeight {
+						if ks.value > max {
+							max = ks.value
+						}
+						newOnes = append(
+							newOnes,
+							ks,
+						)
+					}
 				}
 			}
 		}
 
-		out = append(out, newOnes...)
+		// all = append(all, newOnes...)
 		currentKnapsacks = newOnes
 	}
-	return out
+	return max
 }
 
 func copyMap[V any](m map[int]V) map[int]V {
